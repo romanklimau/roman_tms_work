@@ -7,5 +7,6 @@ def browser():
 
     driver = webdriver.Chrome()
     driver.maximize_window()
+    driver.get('http://localhost/litecart')
     yield driver
     driver.quit()
