@@ -1,5 +1,4 @@
 from pages.base_page import BasePage
-from locators.main_page_locator import MainPageLocator
 from locators.add_bar_locator import AddBarLocator
 
 class MainPage(BasePage):
@@ -12,12 +11,13 @@ class MainPage(BasePage):
 
     def checking_currency(self):
         currency = self.find_element(
-            MainPageLocator.LOCATOR_CURRENCY
+            AddBarLocator.LOCATOR_CURRENCY
         ).text
-        assert 'EUR' == currency, 'currency not changed'
+        assert 'EUR' == currency, 'Currency not eq Euros'
 
     def checking_country(self):
         country = self.find_element(
-            MainPageLocator.LOCATOR_COUNTRY
+            AddBarLocator.LOCATOR_COUNTRY
         ).text
-        assert self.country == country, 'country not changed'
+        assert "Hong Kong" == country, 'Country not eq Hong Kong'
+
