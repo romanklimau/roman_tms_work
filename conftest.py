@@ -2,6 +2,7 @@ from selenium import webdriver
 import pytest
 import json
 import os.path
+import mysql.connector as mysql
 
 def load_config(file_path):
     config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), file_path)
@@ -31,5 +32,12 @@ def country_data_config():
     config_data_country = load_config('recources/country_data.json')
     return config_data_country['HK']
 
+@pytest.fixture()
+def email_data():
+    email = load_config('recources/user_data.json')
+    return email['email']
 
-
+@pytest.fixture()
+def password_data():
+    password = load_config('recources/user_data.json')
+    return password['password']

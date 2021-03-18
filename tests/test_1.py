@@ -1,6 +1,5 @@
 from pages.main_page import MainPage
 from pages.regional_settings_page import RegionalSettings
-from time import sleep
 
 
 def test_change_country_and_currency(browser, currency_data_config, country_data_config):
@@ -15,4 +14,3 @@ def test_change_country_and_currency(browser, currency_data_config, country_data
     regional_settings.click_save_button()
     main_page.checking_currency()
     main_page.checking_country()
-    sleep(5)
