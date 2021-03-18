@@ -17,6 +17,5 @@ def test_opportunity_to_make_an_order(browser, email_data, password_data):
     # database = Sql_DB()
     # id_in_database_before = database.return_len_orders(database.connect())
     cart_page.make_order()
-    cart_page.checking_maked_order()
     # id_in_database_later = database.return_len_orders(database.connect())
     # database.comarison_id_order(id_in_database_before, id_in_database_later)

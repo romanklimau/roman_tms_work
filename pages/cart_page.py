@@ -1,6 +1,5 @@
 from pages.base_page import BasePage
 from locators.cart_locator import CartLocator
-from time import sleep
 
 
 class CartPage(BasePage):
@@ -28,14 +27,4 @@ class CartPage(BasePage):
             CartLocator.LOCATOR_BUTTON_CONFIRM_ORDER
         )
         button_confirm_order.click()
-
-    def checking_maked_order(self):
-        visible_element = self.find_element(
-            CartLocator.LOCATOR_ORDER_SUCCESSFULLY
-        ).text
-        text = 'Customer Service'
-        assert visible_element == text, f'{visible_element} not visible'
-
-
-
-
+        self.waiting_item(CartLocator.LOCATOR_ORDER_SUCCESSFULLY)

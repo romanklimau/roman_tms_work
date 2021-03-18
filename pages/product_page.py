@@ -1,6 +1,5 @@
 from pages.base_page import BasePage
 from locators.duck_locator import ProductDuckLocator
-from time import sleep
 from selenium.webdriver.support.ui import Select
 
 class ProductPage(BasePage):
@@ -26,4 +25,5 @@ class ProductPage(BasePage):
                 ProductDuckLocator.LOCATOR_BUTTON_ADD_TO_CART
             )
             add_duck.click()
-            sleep(2)
+            self.checking_elements_after_adding(
+                ProductDuckLocator.LOCATOR_QUANTITY_DUCK_IN_CAR_ON_THE_DUCK_PAGE)
