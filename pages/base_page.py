@@ -17,14 +17,12 @@ class BasePage:
             EC.presence_of_all_elements_located(locator),
             message=f'Can not find element {locator}')
 
-    def checking_elements_after_adding(self, locator: tuple, time=10):
+    def checking_elements_after_adding(self, locator: tuple, time=30):
         return WebDriverWait(self.driver, time).until(
             EC.text_to_be_present_in_element(locator, text_='3'),
             message=f'Can not change value {locator}')
 
-    def waiting_item(self, locator: tuple, time=10):
+    def checking_confirm_order(self, locator: tuple, time=10):
         return WebDriverWait(self.driver, time).until(
-            EC.visibility_of(locator),
-            message=f'Can not visible element {locator}')
-
-
+            EC.text_to_be_present_in_element(locator, text_='Your order is successfully completed!'),
+            message=f'Can not change value {locator}')

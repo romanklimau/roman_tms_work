@@ -27,4 +27,8 @@ class CartPage(BasePage):
             CartLocator.LOCATOR_BUTTON_CONFIRM_ORDER
         )
         button_confirm_order.click()
-        self.waiting_item(CartLocator.LOCATOR_ORDER_SUCCESSFULLY)
+        self.driver.execute_script(
+            "window.scrollTo(0, document.body.scrollHeight);")
+        visible_confirm_order = self.checking_confirm_order(
+            CartLocator.LOCATOR_ORDER_SUCCESSFULLY)
+        assert visible_confirm_order is True, f'{visible_confirm_order}, not found'

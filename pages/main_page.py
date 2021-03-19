@@ -39,12 +39,12 @@ class MainPage(BasePage):
         button_login.click()
 
     def open_product_page(self):
-        number_product = random.choice([1, 2, 3, 4, 5])
-        product_duck = self.find_elements(
-            MainPageLocator.LOCATOR_DUCK
+        # number_product = random.choice([1, 2, 3, 4, 5])
+        product_duck = self.find_element(
+            MainPageLocator.LOCATOR_YELLOW_DUCK
         )
-        duck = product_duck[number_product]
-        duck.click()
+        # duck = product_duck[number_product]
+        product_duck.click()
 
     def open_page_cart(self):
         open_page_cart = self.find_element(
