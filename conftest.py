@@ -2,7 +2,6 @@ from selenium import webdriver
 import pytest
 import json
 import os.path
-import mysql.connector as mysql
 
 def load_config(file_path):
     config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), file_path)
@@ -14,7 +13,11 @@ def load_config(file_path):
 @pytest.fixture()
 def browser():
 
-    driver = webdriver.Chrome()
+    driver = webdriver.ChromeOptions()
+    driver.add_argument('--no-sandbox')
+    driver.add_argument('--headless')
+    driver.add_argument('--disable-gpu')
+    driver = webdriver.Chrome(chrome_options=driver)
     driver.maximize_window()
     driver.get('http://localhost/litecart')
     yield driver
