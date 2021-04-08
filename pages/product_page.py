@@ -11,9 +11,6 @@ class ProductPage(BasePage):
             ))
             select_size.select_by_index(1)
 
-        except Exception:
-            pass
-
         finally:
 
             quantity_duck = self.find_element(

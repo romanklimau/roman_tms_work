@@ -1,4 +1,5 @@
 .idea/
 .tox/
 .circleci/
-README.md
+/venv
+/results
