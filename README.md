@@ -15,3 +15,12 @@ test_task_2:
 5. Check that the product added in cart and price is correct
 6. Make an order
 7. Check in db that the order make
+
+
+test_task_3:
+1. Add a new pet in store(https://petstore.swagger.io/#/)
+2. Check that the pet is added
+3. Remove pet
+4. Check that the pet no longer exists
+
+

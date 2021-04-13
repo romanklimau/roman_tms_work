@@ -4,7 +4,7 @@ from pages.product_page import ProductPage
 from sql_db.db_litecart_sql import Sql_DB
 
 
-def test_opportunity_to_make_an_order(browser, email_data, password_data):
+def test_opportunity_to_make_an_order(browser, email_data, password_data, db_connect):
     main_page = MainPage(browser)
     main_page.login(email_data, password_data)
     main_page.open_product_page()
@@ -14,8 +14,8 @@ def test_opportunity_to_make_an_order(browser, email_data, password_data):
     cart_page = CartPage(browser)
     cart_page.checking_price()
     cart_page.checking_quntity_product()
-    database = Sql_DB()
-    id_in_database_before = database.return_len_orders(database.connect())
+    database = Sql_DB(db_connect)
+    id_in_database_before = database.return_len_orders()
     cart_page.make_order()
-    id_in_database_later = database.return_len_orders(database.connect())
+    id_in_database_later = database.return_len_orders()
     database.comarison_id_order(id_in_database_before, id_in_database_later)

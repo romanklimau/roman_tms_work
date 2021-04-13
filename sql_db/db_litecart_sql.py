@@ -1,19 +1,11 @@
-import mysql.connector as mysql
-
-
 class Sql_DB:
 
-    def connect(self):
-        db_conn = mysql.connect(
-            host="localhost",
-            user="root",
-            password="",
-            database='db_litecart'
-        )
-        return db_conn
+    def __init__(self, connect):
+        self.connect = connect
 
-    def return_len_orders(self, connect):
-        cursor = connect.cursor()
+
+    def return_len_orders(self):
+        cursor = self.connect.cursor()
         cursor.execute("SELECT id FROM lc_orders_items")
         a = cursor.fetchall()
         return len(a)
